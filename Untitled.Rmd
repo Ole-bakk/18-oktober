@@ -35,6 +35,7 @@ library(tidyverse)
 library(modelr)
 library(hrbrthemes)
 library(proxyC)
+library(DataExplorer)
 
 heights$heightInt <- cut(heights$height, breaks = 8)
 summary(heights[,1:4])
@@ -60,9 +61,18 @@ plot3 + geom_jitter(width = .5, size=1) +
        theme_classic()
 
 
-which(heights$income == 0)
+        
+# 1740 people have zeroincome
 
-#1740 has no income
+
+
+scatter.smooth(x=heights$height, y=heights$income, main="Income ~ Height")
+
+Model1 <- lm(heights$height ~ heights$income, data=heights)  # build linear regression model on full data
+print(Model1)
+
+
+summary(Model1)
 
 ```
 

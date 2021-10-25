@@ -9,22 +9,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-
-
-```{r}
-data("gapminder")
-
-View(gapminder)
-```
-
-
-```{r}
-library(tidyverse)
-library(modelr)
-View(heights)
-```
-
-
 ```{r}
 heights$heightInt <- cut(heights$height, breaks = 8)
 summary(heights[,1:4])
@@ -35,7 +19,7 @@ library(tidyverse)
 library(modelr)
 library(hrbrthemes)
 library(proxyC)
-library(DataExplorer)
+
 
 heights$heightInt <- cut(heights$height, breaks = 8)
 summary(heights[,1:4])

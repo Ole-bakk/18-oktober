@@ -1,0 +1,68 @@
+---
+title: "18 oktober"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+
+```{r}
+data("gapminder")
+
+View(gapminder)
+```
+
+
+```{r}
+library(tidyverse)
+library(modelr)
+View(heights)
+```
+
+
+```{r}
+heights$heightInt <- cut(heights$height, breaks = 8)
+summary(heights[,1:4])
+```
+
+```{r}
+library(tidyverse)
+library(modelr)
+library(hrbrthemes)
+library(proxyC)
+
+heights$heightInt <- cut(heights$height, breaks = 8)
+summary(heights[,1:4])
+
+
+
+
+
+Plot1 <- hist(heights$income , main = "Histogram-Income" , xlab = "Income", ylab = "Frequency")
+Plot1
+
+
+
+
+plot3 <- ggplot(heights, aes(height, income))
+plot3 + geom_jitter(width = .5, size=1) +
+  scale_y_sqrt() + 
+  ylim(0,700000) +
+  labs(subtitle="Removed 871 rows containing missing values (geom_points)", 
+       y="Income", 
+       x="Height", 
+       title="Heights dataset") +
+       theme_classic()
+
+
+which(heights$income == 0)
+
+#1740 has no income
+
+```
+
